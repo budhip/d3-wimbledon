@@ -8,6 +8,7 @@ marginLeft = 40
 
 var colorScale = d3.scaleLinear()
 var yScale = d3.scaleLinear()
+var transition = d3.transition()
 
 // Drawing area
 let svg = d3.select('#results')
@@ -57,6 +58,8 @@ let redraw = (data) => {
        return height - yScale(d) - margin
      })
      .attr('width', lebarBatang - 2)
+     .transition()
+     .duration(1000)
      .attr('height', (d) => {
        return yScale(d)
      })
